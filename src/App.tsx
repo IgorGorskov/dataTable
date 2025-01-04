@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from './components/Header/Header';
+import { Header } from './components/Header/Header';
+import { Main } from './components/Main/Main';
+
 
 const App: React.FC = () => {
   return  <>
-    <h1 style={{display: 'none'}}>DataTable</h1>
     <Header />
-
+    <Main />
   </>;
 };
 

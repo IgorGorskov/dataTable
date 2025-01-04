@@ -1,0 +1,80 @@
+export interface User {
+    id: number,
+    name: string,
+    createDate: Date,
+    changeDate: Date,
+    links: string [],
+}
+
+export const USERS_LIST: User[] = [
+  {
+    id: 1,
+    name: "Иванов Иван Иванович",
+    createDate: new Date("2024-12-15T10:30:00"),
+    changeDate: new Date("2024-12-15T12:45:00"),
+    links: ["https://example.com/profile/1", "https://example.com/settings/1"],
+  },
+  {
+    id: 2,
+    name: "Петров Петр Петрович",
+    createDate: new Date("2024-11-20T14:20:00"),
+    changeDate: new Date("2024-11-20T16:30:00"),
+    links: ["https://example.com/profile/2"],
+  },
+  {
+    id: 3,
+    name: "Сидоров Сидор Сидорович",
+    createDate: new Date("2024-10-10T09:15:00"),
+    changeDate: new Date("2024-10-10T11:25:00"),
+    links: ["https://example.com/profile/3"],
+  },
+  {
+    id: 4,
+    name: "Алексеев Алексей Алексеевич",
+    createDate: new Date("2024-09-05T08:00:00"),
+    changeDate: new Date("2024-09-05T10:10:00"),
+    links: ["https://example.com/profile/4", "https://example.com/details/4"],
+  },
+  {
+    id: 5,
+    name: "Николаев Николай Николаевич",
+    createDate: new Date("2024-08-25T18:45:00"),
+    changeDate: new Date("2024-08-25T19:50:00"),
+    links: ["https://example.com/profile/5"],
+  },
+  {
+    id: 6,
+    name: "Федоров Федор Федорович",
+    createDate: new Date("2024-07-15T11:25:00"),
+    changeDate: new Date("2024-07-15T13:35:00"),
+    links: ["https://example.com/profile/6"],
+  },
+  {
+    id: 7,
+    name: "Михайлов Михаил Михайлович",
+    createDate: new Date("2024-06-10T15:40:00"),
+    changeDate: new Date("2024-06-10T17:50:00"),
+    links: ["https://example.com/profile/7", "https://example.com/info/7"],
+  },
+  {
+    id: 8,
+    name: "Васильев Василий Васильевич",
+    createDate: new Date("2024-05-20T13:10:00"),
+    changeDate: new Date("2024-05-20T15:25:00"),
+    links: ["https://example.com/profile/8"],
+  },
+  {
+    id: 9,
+    name: "Андреев Андрей Андреевич",
+    createDate: new Date("2024-04-15T10:50:00"),
+    changeDate: new Date("2024-04-15T12:00:00"),
+    links: ["https://example.com/profile/9"],
+  },
+  {
+    id: 10,
+    name: "Кузнецов Кузьма Кузьмич",
+    createDate: new Date("2024-03-30T08:30:00"),
+    changeDate: new Date("2024-03-30T10:45:00"),
+    links: ["https://example.com/profile/10", "https://example.com/settings/10"],
+  },
+];

@@ -1,0 +1,23 @@
+.container{
+    max-height: 500px;
+    margin-bottom: 3rem;
+    overflow-y: scroll;
+}
+
+.table{
+    width: 100%;
+}
+
+.tableHeader{
+    position: sticky;
+    top: 0;
+    background-color: #e5e5e5;
+    th{
+        text-align: left;
+    }
+}
+
+.tableBody{
+    font-size: 16px;
+}
+
