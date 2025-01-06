@@ -1,0 +1,6 @@
+@use '../../../../public/colors.module.scss' as *;
+
+.linkBox{
+    width: 100%;
+    background-color: $links-background;
+}

@@ -1,12 +1,14 @@
 import { User } from "../User"
+import { Modal } from "../Modal/Modal"
+import { ModalEditUser } from "../Modal/ModalEditUser/ModalEditUser"
+import { useState } from "react"
+import { ModalDeletUser } from "../Modal/ModalDeletUser/ModalDeletUser"
 import * as style from './style.module.scss'
-import TelIcon from '../../assets/telephone.svg'
+import { ContactLink } from "../ui/ContactLink/ContactLink"
 
 interface TableUserRowProps {
     user: User
 }
-
-
 
 export const TableUserRow = ({user} : TableUserRowProps) => {
     const createDay = String(user.createDate.getDate()).padStart(2, '0')
@@ -27,15 +29,46 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
     const formattedChangeDate = `${changeDay}.${changeMonth}.${changeYear} `
     const formattedChangeTime = `${changeHours}:${changeMinutes}`
 
-    return <tr className={style.userRow}>
-        <td>{user.id}</td>
-        <td>{user.name}</td>
-        <td>{formattedCreateDate}<span className={style.time}>{formattedCreateTime}</span></td>
-        <td>{formattedChangeDate}<span className={style.time}>{formattedChangeTime}</span> </td>
-        <td>{user.links.map(link => (<a key={link} href={link}><TelIcon/></a>))}</td>
-        <td>
-            <button>Изменить</button>
-            <button>Удалить</button>
-        </td>
-    </tr>
+    const [isEditUser, setIsEditUser] = useState<Boolean>(false)
+    const [isDelUser, setIsDelUser] = useState<Boolean>(false)
+
+    const handleEditButton = () => {
+        setIsEditUser(true)
+    }
+
+    const handleDeletButton = () => {
+        setIsDelUser(true)
+    }
+
+    return <>
+        <tr className={style.userRow}>
+            <td>{user.id}</td>
+            <td>
+                {`${user.lastName} ${user.firstName} ${user.patronymic}`}
+            </td>
+            <td>
+                {formattedCreateDate}
+                <span className={style.time}>{formattedCreateTime}</span>
+            </td>
+            <td>
+                {formattedChangeDate}
+                <span className={style.time}>{formattedChangeTime}</span> 
+            </td>
+            <td>
+                {user.links.map(link => (<ContactLink key={link} link={link}/>))}
+            </td>
+            <td>
+                <button onClick={handleEditButton}>Изменить</button>
+                <button onClick={handleDeletButton}>Удалить</button>
+            </td>
+        </tr>
+        {isEditUser && 
+        <Modal handleClose={()=>{setIsEditUser(false)}}>
+            <ModalEditUser user={user}/>
+        </Modal>}
+        {isDelUser && 
+        <Modal handleClose={()=>{setIsDelUser(false)}}>
+            <ModalDeletUser/>
+        </Modal>}
+    </>
 }

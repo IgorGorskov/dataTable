@@ -1,5 +1,7 @@
+@use '../../../public/colors.module.scss' as *;
+
 .wrapper{
-    margin: 0 auto;
+
     background-color: #FFFFFF;
 }
 
@@ -15,7 +17,7 @@
     display: flex;
     align-items: center;
     margin-right: 50px;
-    color: #9873FF;
+    color: $primary-color;
 }
 
 .logoText{
