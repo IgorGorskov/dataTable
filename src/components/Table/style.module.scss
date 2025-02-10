@@ -2,10 +2,12 @@
     max-height: 500px;
     margin-bottom: 3rem;
     overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 .table{
     width: 100%;
+    
 }
 
 .tableHeader{

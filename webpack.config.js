@@ -72,7 +72,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: './dist',
+    static: path.join(__dirname, 'public'),
     port: 3000,
   },
 };

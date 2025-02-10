@@ -55,7 +55,7 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
                 <span className={style.time}>{formattedChangeTime}</span> 
             </td>
             <td>
-                {user.links.map(link => (<ContactLink key={link} link={link}/>))}
+                {user.links.map(link => (<ContactLink key={link.text} link={link.text}/>))}
             </td>
             <td>
                 <button onClick={handleEditButton}>Изменить</button>
@@ -68,7 +68,7 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
         </Modal>}
         {isDelUser && 
         <Modal handleClose={()=>{setIsDelUser(false)}}>
-            <ModalDeletUser/>
+            <ModalDeletUser user={user}/>
         </Modal>}
     </>
 }

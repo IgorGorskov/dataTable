@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react"
 import { TableUserRow } from "../TableUserRow/TableUserRow"
-import { USERS_LIST } from "../User"
+import { FetchUsersFromPublic, User} from "../User"
 import * as style from "./style.module.scss"
 
 export const Table = () => {
+    const [users, setUsers] = useState<User[]>([])
+    useEffect( () =>{
+        const fetchUsers = async () => {
+            let users = await FetchUsersFromPublic()
+            setUsers(users)
+            console.log(users)
+        }
+        fetchUsers()
+    }, [])
     return <div className={style.container}>
         <table className={style.table}>
             <thead className={style.tableHeader}>
@@ -15,9 +25,9 @@ export const Table = () => {
                     <th>Действия</th>
                 </tr>
             </thead>
-            <tbody className={style.tableBody}>
-                {USERS_LIST.map(user => <TableUserRow key={user.id} user={user}/>)}
-            </tbody>
+            {users && <tbody className={style.tableBody}>
+                {users.map(user => <TableUserRow key={user.id} user={user}/>)}
+            </tbody>}
         </table>
     </div>
 }
