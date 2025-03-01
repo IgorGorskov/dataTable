@@ -5,6 +5,9 @@ import { useState } from "react"
 import { ModalDeletUser } from "../Modal/ModalDeletUser/ModalDeletUser"
 import * as style from './style.module.scss'
 import { ContactLink } from "../ui/ContactLink/ContactLink"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "store/store"
+import { openEditModal, openDeleteModal } from "store/modalSlice"
 
 interface TableUserRowProps {
     user: User
@@ -29,15 +32,14 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
     const formattedChangeDate = `${changeDay}.${changeMonth}.${changeYear} `
     const formattedChangeTime = `${changeHours}:${changeMinutes}`
 
-    const [isEditUser, setIsEditUser] = useState<Boolean>(false)
-    const [isDelUser, setIsDelUser] = useState<Boolean>(false)
+    const dispatch = useDispatch()
 
     const handleEditButton = () => {
-        setIsEditUser(true)
+        dispatch(openEditModal(user))
     }
 
     const handleDeletButton = () => {
-        setIsDelUser(true)
+        dispatch(openDeleteModal(user))
     }
 
     return <>
@@ -62,13 +64,5 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
                 <button onClick={handleDeletButton}>Удалить</button>
             </td>
         </tr>
-        {isEditUser && 
-        <Modal handleClose={()=>{setIsEditUser(false)}}>
-            <ModalEditUser user={user}/>
-        </Modal>}
-        {isDelUser && 
-        <Modal handleClose={()=>{setIsDelUser(false)}}>
-            <ModalDeletUser user={user}/>
-        </Modal>}
     </>
 }

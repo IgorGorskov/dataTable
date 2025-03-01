@@ -2,14 +2,12 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-  }
-  
-  
-      /* Скрытый блок всплывающей подсказки */
+}
+
 .tooltip {
     display: none;
     position: absolute;
-    bottom: 120%; /* Расстояние над значком */
+    bottom: 120%; 
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;
@@ -19,14 +17,13 @@
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
+    z-index: 10;
 }
 
-/* Показ подсказки при наведении */
 .container:hover .tooltip {
     display: block;
 }
 
-/* Значки */
 .icon {
     display: flex;
     align-items: center;

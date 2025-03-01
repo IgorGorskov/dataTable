@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react"
 import { TableUserRow } from "../TableUserRow/TableUserRow"
-import { FetchUsersFromPublic, User} from "../User"
+import { RootState } from "store/store"
+import { useSelector } from "react-redux"
+
 import * as style from "./style.module.scss"
 
 export const Table = () => {
-    const [users, setUsers] = useState<User[]>([])
-    useEffect( () =>{
-        const fetchUsers = async () => {
-            let users = await FetchUsersFromPublic()
-            setUsers(users)
-            console.log(users)
-        }
-        fetchUsers()
-    }, [])
+    const users = useSelector((state: RootState) => state.users.UserList)
+
     return <div className={style.container}>
         <table className={style.table}>
             <thead className={style.tableHeader}>
