@@ -16,8 +16,9 @@
       "forceConsistentCasingInFileNames": true,
       "baseUrl": "src",
       "paths": {
-        // "components/*": ["components/*"],
-        // "store/*": ["store/*"]
+        "components/*": ["components/*"],
+        "store/*": ["store/*"],
+        "assets/*": ["assets/*"]
       }
     },
     "include": ["src"],

@@ -1,7 +1,11 @@
 import { User } from "components/User"
+import { SORT_TYPE } from "./usersSlice"
 
 export type State = {
-    UserList: User []
+    userList: User [],
+    filteredList: User [],
+    sortOrder: ORDERS,
+    currentSort: SORT_TYPE
 }
 
 type SaveUsers = {
@@ -20,3 +24,8 @@ type DeletUser = {
 }
 
 export type UserAction = ChangeUser | DeletUser | SaveUsers
+
+export enum ORDERS {
+    DESC = 'desc',
+    ASC = 'ASC'
+}

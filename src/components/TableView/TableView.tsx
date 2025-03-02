@@ -1,12 +1,14 @@
 import { Modal } from '../Modal/Modal'
 import { Table } from '../Table/Table'
-import * as style from './style.module.scss' 
 import { ModalAddUser } from '../Modal/ModalAddUser/ModalAddUser'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store/store'
 import { MODALS_TYPE, openAddModal } from 'store/modalSlice'
 import { ModalEditUser } from 'components/Modal/ModalEditUser/ModalEditUser'
 import { ModalDeletUser } from 'components/Modal/ModalDeletUser/ModalDeletUser'
+import { Button } from 'components/ui/Button/Button'
+
+import * as style from './style.module.scss' 
 
 export const TableView = () => {
     const modalState = useSelector((state: RootState) => state.modal)
@@ -19,7 +21,13 @@ export const TableView = () => {
     return <main className={style.main}>
         <h1 className={style.title}>Клиенты</h1>
         <Table />
-        <button onClick={handleAddButton} className={style.addUser}>Добавить клиента</button>
+
+        <Button
+            className={style.addUser}
+            onClick={handleAddButton}
+        >
+            Добавить клиента
+        </Button>
         {modalState.isOpen && 
         <Modal>
             {(modalState.modalType == MODALS_TYPE.ADD) && <ModalAddUser />}

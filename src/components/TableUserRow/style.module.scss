@@ -8,4 +8,9 @@
     .time{
         color: #B0B0B0;
     }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
 }

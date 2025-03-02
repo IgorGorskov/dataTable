@@ -24,3 +24,35 @@
     font-size: 16px;
 }
 
+.idHead,
+.nameHead,
+.creationTimeHead,
+.changeTimeHead, 
+.contactsHead,
+.actionHead{
+    padding-bottom: 5px;
+}
+
+.idHead{
+    width: 5%;
+}
+
+.nameHead{
+    width: 25%;
+}
+
+.creationTimeHead{
+    width: 20%;
+}
+
+.changeTimeHead{
+    width: 20%;
+}
+
+.contactsHead{
+    width: 15%;
+}
+
+.actionHead{
+    width: 25%;
+}

@@ -1,0 +1,8 @@
+@use '/public/colors.module.scss' as *;
+
+.button{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid $primary-color;
+    color: $primary-black;
+}

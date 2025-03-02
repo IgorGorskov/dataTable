@@ -1,13 +1,9 @@
 import { User } from "../User"
-import { Modal } from "../Modal/Modal"
-import { ModalEditUser } from "../Modal/ModalEditUser/ModalEditUser"
-import { useState } from "react"
-import { ModalDeletUser } from "../Modal/ModalDeletUser/ModalDeletUser"
 import * as style from './style.module.scss'
 import { ContactLink } from "../ui/ContactLink/ContactLink"
 import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "store/store"
 import { openEditModal, openDeleteModal } from "store/modalSlice"
+import { Button } from "components/ui/Button/Button"
 
 interface TableUserRowProps {
     user: User
@@ -59,9 +55,9 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
             <td>
                 {user.links.map(link => (<ContactLink key={link.text} link={link.text}/>))}
             </td>
-            <td>
-                <button onClick={handleEditButton}>Изменить</button>
-                <button onClick={handleDeletButton}>Удалить</button>
+            <td className={style.buttons}>
+                <Button onClick={handleEditButton}>Изменить</Button>
+                <Button onClick={handleDeletButton}>Удалить</Button>
             </td>
         </tr>
     </>
