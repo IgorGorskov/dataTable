@@ -1,8 +1,10 @@
-import { store } from "store/store"
 import { User } from "../../User"
 import { useDispatch } from 'react-redux'
 import { deleteUser } from 'store/usersSlice'
 import { closeModal } from "store/modalSlice"
+import { Button } from "components/ui/Button/Button"
+
+import * as style from '../style.module.scss'
 
 interface ModalDeletUserProps {
     user: User
@@ -16,8 +18,8 @@ export const ModalDeletUser = ({user}: ModalDeletUserProps) => {
         dispatch(closeModal())
     }
     return <>
-        <h2>Удаление клиента</h2>
-        <span>{user.id}</span>
-        <button onClick={handleDeletUser}>Удалить</button>
+        <h2 className={style.header}>Удаление клиента <span className={style.id}>ID: {user.id}</span></h2> 
+        <p className={style.deleteName}>{`${user.firstName} ${user.lastName} ${user.patronymic}`.trim()}</p>
+        <Button onClick={handleDeletUser}>Удалить</Button>
     </>
 } 

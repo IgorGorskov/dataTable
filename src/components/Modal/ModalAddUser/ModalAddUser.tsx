@@ -3,8 +3,9 @@ import { LinkInput } from '../../ui/LinkInput/LinkInput'
 import { emptyUser, Link, User } from '../../User'
 import { useDispatch } from 'react-redux'
 import { addUser } from 'store/usersSlice'
-import * as style from './style.module.scss'
 import { closeModal } from 'store/modalSlice'
+import * as style from '../style.module.scss'
+import { Button } from 'components/ui/Button/Button'
 
 export const ModalAddUser = () => {
     const [links, setLinks] = useState<Link []>([])
@@ -35,16 +36,16 @@ export const ModalAddUser = () => {
     }
 
     return <>
-        <h2>Добавление клиента</h2>
+        <h2 className={style.header}>Добавление клиента</h2>
         <form id='newUserForm' onSubmit={handleSubmit}>
-            <input onChange={handleChange} name='lastName' type="text" placeholder='Фамилия'/>
-            <input onChange={handleChange} name='firstName' type="text" placeholder='Имя'/>
-            <input onChange={handleChange} name='patronymic' type="text" placeholder='Отчество'/>
+            <input className={style.input} onChange={handleChange} name='lastName' type="text" placeholder='Фамилия'/>
+            <input className={style.input} onChange={handleChange} name='firstName' type="text" placeholder='Имя'/>
+            <input className={style.input} onChange={handleChange} name='patronymic' type="text" placeholder='Отчество'/>
             <div className={style.linkBox}>
                 {links.map((link, index) => <LinkInput id={String(index)} onChange={handleLinkChange}/>)}
-                <button type="button" onClick={handleAddLink}>Добавить контакт</button>
+                <Button className={style.linkButton} onClick={handleAddLink} type="button">+ Добавить контакт</Button>
             </div>
-            <button type="submit">Сохранить</button>
+            <Button className={style.addButton} type="submit">Сохранить</Button>
         </form>
     </>
 }

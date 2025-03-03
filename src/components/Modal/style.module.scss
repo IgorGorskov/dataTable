@@ -1,3 +1,5 @@
+@use '/public/colors.module.scss' as *;
+
 .modalBack{
     display: flex;
     justify-content: center;
@@ -13,14 +15,66 @@
 
 .modalWindow{
     position: relative;
-    padding: 24px 30px;
-    width: 20rem;
-    transform: translate(0, -50%);
+    padding: 24px 55px 24px 24px;
+    width: 30rem;
+    transform: translate(0, -15%);
     background-color: white;
+
+    p{
+        margin: 0;
+    }
+    
+    h2{
+        margin: 0;
+    }
+    .header{
+        margin-bottom: 20px;
+    }
+    .deleteName{
+        margin-bottom: 20px;
+    }
+
+    .input{
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        border-bottom: 1px solid;
+        font-size: 20px;
+    }
+
+    .linkBox{
+        margin: 30px -55px 30px -24px;
+        padding: 20px 55px 20px 24px;
+        background-color: $links-background;
+        .linkButton{
+            display: block;
+            margin: auto;
+            border: none;
+            color: $primary-color;
+            background: none;
+        }
+    }
+
+    .closeButton{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    
+    .id{
+        font-weight: 400;
+        font-size: 16px;
+        color: $grey;
+    }
+    
+    
+    
+    .addButton{
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+    
 }
 
-.closeButton{
-    position: absolute;
-    right: 0;
-    top: 0;
-}

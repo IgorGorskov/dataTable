@@ -1,3 +1,14 @@
 .inputBox{
     display: flex;
+    margin-bottom: 15px;
+    font-size: inherit;
+    input{
+        flex-grow: 1;
+        padding: 9px;
+        background: none;
+        font-size: inherit;
+    }
+    select{
+        font-size: inherit;
+    }
 }

@@ -1,18 +1,16 @@
-import { ChangeEvent, ChangeEventHandler, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
+import { Link } from 'components/User'
 import * as style from './style.module.scss'
 
 interface InputLinkProps {
     id: string,
     onChange: (id: string, value: {text: string, type: string}) => void,
+    link?: Link
 }
 
-enum LinkTypes {
-
-}
-
-export const LinkInput = ({id, onChange}: InputLinkProps) => {
-    const [type, setType] = useState('')
-    const [text, setText] = useState('')
+export const LinkInput = ({id, onChange, link}: InputLinkProps) => {
+    const [type, setType] = useState(link ? link.type : '')
+    const [text, setText] = useState(link ? link.text : '')
 
     const handleLinkChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setType(event.target.value)
@@ -25,7 +23,7 @@ export const LinkInput = ({id, onChange}: InputLinkProps) => {
     }
 
     return <div id={id} className={style.inputBox}>
-        <select onChange={handleLinkChange}>
+        <select value={type} onChange={handleLinkChange}>
             <option value="" disabled>
                 Выберите тип
             </option>

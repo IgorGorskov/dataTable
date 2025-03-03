@@ -1,18 +1,19 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { LinkInput } from '../../ui/LinkInput/LinkInput'
-import { User } from '../../User'
+import { Link, User } from '../../User'
 import { useDispatch } from 'react-redux'
 import { changeUser } from 'store/usersSlice'
 
-import * as style from './style.module.scss'
+import * as style from '../style.module.scss'
 import { closeModal } from 'store/modalSlice'
+import { Button } from 'components/ui/Button/Button'
 
 interface ModalEditUserProps {
     user: User,
 }
 
 export const ModalEditUser = ({user}:ModalEditUserProps) => {
-    const [links, setLinks] = useState<String []>([])
+    const [links, setLinks] = useState<Link []>(user.links)
     const [newUser, setChangedUser] = useState<User>(user)
     const dispatch = useDispatch()
 
@@ -32,21 +33,21 @@ export const ModalEditUser = ({user}:ModalEditUserProps) => {
     }
 
     const handleAddLink = () => {
-        setLinks((prevLinks)=>[...prevLinks, String(Date.now())])
+        setLinks((prevLinks)=>[...prevLinks, {type: '', text: ''}])
     }
 
     return <>
-        <h2>Изменение информации клиента</h2>
-        <span>{user.id}</span>
+        <h2 className={style.header}>Изменение информации клиента <span className={style.id}><br/> ID: {user.id}</span></h2>
+        
         <form onSubmit={(event) => handleSubmit(event)}>
-            <input type="text" onChange={handleChange} name='lastName' placeholder='Фамилия' value={newUser.lastName}/>
-            <input type="text" onChange={handleChange} name='firstName' placeholder='Имя' value={newUser.firstName}/>
-            <input type="text" onChange={handleChange} name='patronymic' placeholder='Отчество' value={newUser?.patronymic}/>
+            <input className={style.input} type="text" onChange={handleChange} name='lastName' placeholder='Фамилия' value={newUser.lastName}/>
+            <input className={style.input} type="text" onChange={handleChange} name='firstName' placeholder='Имя' value={newUser.firstName}/>
+            <input className={style.input} type="text" onChange={handleChange} name='patronymic' placeholder='Отчество' value={newUser?.patronymic}/>
             <div className={style.linkBox}>
-                {links.map((link, index) => <LinkInput id={String(index)} onChange={handleLinkChange}/>)}
-                <button onClick={handleAddLink}>Добавить контакт</button>
+                {links.map((link, index) => <LinkInput link={link} id={String(index)} onChange={handleLinkChange}/>)}
+                <Button className={style.linkButton} onClick={handleAddLink} type="button">+ Добавить контакт</Button>
             </div>
-            <button type="submit">Сохранить</button>
+            <Button className={style.addButton} type="submit">Сохранить</Button>
         </form>
     </>
 }
