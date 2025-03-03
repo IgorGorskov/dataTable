@@ -4,7 +4,7 @@
     cursor: pointer;
 }
 
-.tooltip {
+.copyTooltip, .tooltip {
     display: none;
     position: absolute;
     bottom: 120%; 
@@ -22,6 +22,12 @@
 
 .container:hover .tooltip {
     display: block;
+}
+
+.copyTooltip{
+    display: block;
+    bottom: 100%; 
+    left: 0;
 }
 
 .icon {

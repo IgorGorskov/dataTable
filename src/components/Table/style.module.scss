@@ -1,3 +1,5 @@
+@use '/public/colors.module.scss' as *;
+
 .container{
     max-height: 500px;
     margin-bottom: 3rem;
@@ -41,6 +43,10 @@
     width: 25%;
 }
 
+.text{
+    margin-right: 7px;
+}
+
 .creationTimeHead{
     width: 20%;
 }
@@ -55,4 +61,16 @@
 
 .actionHead{
     width: 25%;
+}
+
+.upArrow{
+    rotate: (0);
+}
+
+.downArrow{
+    rotate: (180deg);
+}
+
+.active{
+    color: $primary-color;
 }

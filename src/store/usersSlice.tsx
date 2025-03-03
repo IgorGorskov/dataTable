@@ -47,6 +47,7 @@ const userSlice = createSlice({
         sortUsers: (state, action: PayloadAction<SORT_TYPE>) => {
             switch (action.payload) {
                 case (SORT_TYPE.ID):
+                    state.currentSort = SORT_TYPE.ID
                     if(state.sortOrder == ORDERS.DESC){
                         state.filteredList = [...state.filteredList].sort(sortByIdDesc)
                         state.sortOrder = ORDERS.ASC
@@ -57,6 +58,7 @@ const userSlice = createSlice({
                     }
                     break;
                 case (SORT_TYPE.NAME):
+                    state.currentSort = SORT_TYPE.NAME
                     if(state.sortOrder == ORDERS.DESC){
                         state.filteredList = [...state.filteredList].sort(sortByNameDesc)
                         state.sortOrder = ORDERS.ASC
@@ -66,23 +68,25 @@ const userSlice = createSlice({
                         state.sortOrder = ORDERS.DESC
                     }
                     break;
-                case (SORT_TYPE.CHANGE_TIME):
-                    if(state.sortOrder == ORDERS.DESC){
-                        state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+a.changeDate - +b.changeDate))
-                        state.sortOrder = ORDERS.ASC
-                    }
-                    else if(state.sortOrder == ORDERS.ASC){
-                        state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+b.changeDate - +a.changeDate))
-                        state.sortOrder = ORDERS.DESC
-                    }
-                    break;
                 case (SORT_TYPE.CREATION_TIME):
+                    state.currentSort = SORT_TYPE.CREATION_TIME
                     if(state.sortOrder == ORDERS.DESC){
                         state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+a.createDate - +b.createDate))
                         state.sortOrder = ORDERS.ASC
                     }
                     else if(state.sortOrder == ORDERS.ASC){
                         state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+b.createDate - +a.createDate))
+                        state.sortOrder = ORDERS.DESC
+                    }
+                    break;
+                case (SORT_TYPE.CHANGE_TIME):
+                    state.currentSort = SORT_TYPE.CHANGE_TIME
+                    if(state.sortOrder == ORDERS.DESC){
+                        state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+a.changeDate - +b.changeDate))
+                        state.sortOrder = ORDERS.ASC
+                    }
+                    else if(state.sortOrder == ORDERS.ASC){
+                        state.filteredList = [...state.filteredList].sort((a: User, b: User) => (+b.changeDate - +a.changeDate))
                         state.sortOrder = ORDERS.DESC
                     }
                     break;
