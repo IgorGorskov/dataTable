@@ -4,7 +4,7 @@ import * as style from './style.module.scss'
 
 interface InputLinkProps {
     id: string,
-    onChange: (id: string, value: {text: string, type: string}) => void,
+    onChange: (id: string, value: Link) => void,
     link?: Link
 }
 
@@ -29,6 +29,7 @@ export const LinkInput = ({id, onChange, link}: InputLinkProps) => {
             </option>
             <option value="tel">Телефон</option>
             <option value="email">Email</option>
+            <option value="vk">VK</option>
         </select>
         <input 
             onChange={handleTextChange} 

@@ -1,5 +1,5 @@
 export interface Link {
-    type: string, 
+    type: string,  /* 'email' | 'vk' | 'tel' | 'link' | */ 
     text: string
 }
 
@@ -19,7 +19,7 @@ export const emptyUser: User = {
   lastName: 'lastName',
   createDate: new Date('1970-01-01'),
   changeDate: new Date('1970-01-01'),
-  links: [{type:'empType', text: 'link1'}, {type:'empType', text: 'link2'}],
+  links: [{type: 'tel', text: 'link1'}, {type: 'tel', text: 'link2'}],
 }
 
 export const USERS_LIST: User[] = [
@@ -31,8 +31,8 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-12-15T10:30:00"),
     changeDate: new Date("2024-12-15T12:45:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/1" },
-      { type: "link", text: "https://example.com/settings/1" },
+      { type: 'tel', text: "+79000000000" },
+      { type: 'email', text: "test@test.com" },
     ],
   },
   {
@@ -43,7 +43,7 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-11-20T14:20:00"),
     changeDate: new Date("2024-11-20T16:30:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/2" },
+      { type: 'link', text: "https://example.com/profile/2" },
     ],
   },
   {
@@ -54,7 +54,7 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-10-10T09:15:00"),
     changeDate: new Date("2024-10-10T11:25:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/3" },
+      { type: 'link', text: "https://example.com/profile/3" },
     ],
   },
   {
@@ -65,8 +65,8 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-09-05T08:00:00"),
     changeDate: new Date("2024-09-05T10:10:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/4" },
-      { type: "link", text: "https://example.com/details/4" },
+      { type: 'tel', text: "+79000000000" },
+      { type: 'link', text: "https://example.com/details/4" },
     ],
   },
   {
@@ -77,7 +77,7 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-08-25T18:45:00"),
     changeDate: new Date("2024-08-25T19:50:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/5" },
+      { type: 'link', text: "https://example.com/profile/5" },
     ],
   },
   {
@@ -88,7 +88,7 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-07-15T11:25:00"),
     changeDate: new Date("2024-07-15T13:35:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/6" },
+      { type: 'link', text: "https://example.com/profile/6" },
     ],
   },
   {
@@ -99,8 +99,8 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-06-10T15:40:00"),
     changeDate: new Date("2024-06-10T17:50:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/7" },
-      { type: "link", text: "https://example.com/info/7" },
+      { type: 'link', text: "https://example.com/profile/7" },
+      { type: 'link', text: "https://example.com/info/7" },
     ],
   },
   {
@@ -111,7 +111,7 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-05-20T13:10:00"),
     changeDate: new Date("2024-05-20T15:25:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/8" },
+      { type: 'link', text: "https://example.com/profile/8" },
     ],
   },
   {
@@ -122,7 +122,9 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-04-15T10:50:00"),
     changeDate: new Date("2024-04-15T12:00:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/9" },
+      { type: 'email', text: "test@test.com" },
+      { type: 'vk', text: "vk.com" },
+      { type: 'email', text: "test@test.com" },
     ],
   },
   {
@@ -133,8 +135,8 @@ export const USERS_LIST: User[] = [
     createDate: new Date("2024-03-30T08:30:00"),
     changeDate: new Date("2024-03-30T10:45:00"),
     links: [
-      { type: "link", text: "https://example.com/profile/10" },
-      { type: "link", text: "https://example.com/settings/10" },
+      { type: 'link', text: "https://example.com/profile/10" },
+      { type: 'link', text: "https://example.com/settings/10" },
     ],
   },
 ];

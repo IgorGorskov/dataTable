@@ -36,7 +36,7 @@ export const ModalAddUser = () => {
         setValue('links', newLinkArr)
     }
 
-    const handleLinkChange = (id: string, value: {text: string, type: string}) => {
+    const handleLinkChange = (id: string, value: Link) => {
         const links = getValues('links')
         const newLinkArr = links.map((item, index) => (index === +id ? value : item))
         setLinks(newLinkArr)

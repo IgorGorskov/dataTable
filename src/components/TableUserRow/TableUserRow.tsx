@@ -54,7 +54,7 @@ export const TableUserRow = ({user} : TableUserRowProps) => {
                 <span className={style.time}>{formattedChangeTime}</span> 
             </td>
             <td>
-                {user.links.map(link => (<ContactLink key={link.text} link={link.text}/>))}
+                {user.links.map(link => (<ContactLink key={link.text} link={link}/>))}
             </td>
             <td className={style.buttons}>
                 <Button onClick={handleEditButton}>Изменить</Button>
