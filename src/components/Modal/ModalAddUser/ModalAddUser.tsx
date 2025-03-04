@@ -1,49 +1,74 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { LinkInput } from '../../ui/LinkInput/LinkInput'
-import { emptyUser, Link, User } from '../../User'
 import { useDispatch } from 'react-redux'
+
 import { addUser } from 'store/usersSlice'
 import { closeModal } from 'store/modalSlice'
-import * as style from '../style.module.scss'
+
+import { LinkInput } from 'components/ui/LinkInput/LinkInput'
+import { emptyUser, Link, User } from 'components/User'
 import { Button } from 'components/ui/Button/Button'
 
+import * as style from '../style.module.scss'
+import { useForm } from 'react-hook-form'
+
 export const ModalAddUser = () => {
-    const [links, setLinks] = useState<Link []>([])
-    const [newUser, setNewUser] = useState<User>(emptyUser)
     const dispatch = useDispatch()
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target
-        setNewUser((prevNewUser) => ({...prevNewUser, [name]: value}))
-    }
-
-    const handleLinkChange = (id: string, value: Link) => {
-        const updateLinks = [...links]
-        updateLinks[Number(id)] = value
-        setLinks(updateLinks)
-        setNewUser((prevNewUser) => ({...prevNewUser, links}))
-    }
+    const [links, setLinks] = useState<Link[]>([])
+    const { register,
+            handleSubmit,
+            getValues,
+            setValue,
+            formState: { errors },
+    } = useForm<User>({
+        defaultValues: {
+            id: '',
+            lastName: '',
+            firstName: '',
+            patronymic: '',
+            links: [],
+        }
+    })
     
     const handleAddLink = () => {
-        setLinks((prevLinks)=>[...prevLinks, {text: '', type: ''}])
+        const links = getValues('links')
+        const newLinkArr = [...links, {type: 'tel', text: ''}]
+        setLinks(newLinkArr)
+        setValue('links', newLinkArr)
     }
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        setNewUser((prevNewUser) => ({...prevNewUser, id: crypto.randomUUID(), changeDate: new Date(), createDate: new Date()}))
+    const handleLinkChange = (id: string, value: {text: string, type: string}) => {
+        const links = getValues('links')
+        const newLinkArr = links.map((item, index) => (index === +id ? value : item))
+        setLinks(newLinkArr)
+        setValue('links', newLinkArr)
+    }
+
+    const onSubmit =() => {
+        const data = getValues()
+        const newUser = {
+            ...data,
+            id: (Date.now() % 1000000 + Math.floor(Math.random() * 1000)) + '',
+            changeDate: new Date(),
+            createDate: new Date(),
+        }
         dispatch(addUser(newUser))
         dispatch(closeModal())
     }
 
     return <>
         <h2 className={style.header}>Добавление клиента</h2>
-        <form id='newUserForm' onSubmit={handleSubmit}>
-            <input className={style.input} onChange={handleChange} name='lastName' type="text" placeholder='Фамилия'/>
-            <input className={style.input} onChange={handleChange} name='firstName' type="text" placeholder='Имя'/>
-            <input className={style.input} onChange={handleChange} name='patronymic' type="text" placeholder='Отчество'/>
+        <form id='newUserForm' onSubmit={handleSubmit(onSubmit)}>
+            <input {...register('lastName', {required: "Фамилия является обязательным полем"})} className={style.input} name='lastName' type="text" placeholder='Фамилия'/>
+            <input {...register('firstName', {required: "Имя является обязательным полем"})} className={style.input} name='firstName' type="text" placeholder='Имя'/>
+            <input {...register('patronymic', {required: "Отчество является обязательным полем"})} className={style.input} name='patronymic' type="text" placeholder='Отчество'/>
             <div className={style.linkBox}>
                 {links.map((link, index) => <LinkInput id={String(index)} onChange={handleLinkChange}/>)}
                 <Button className={style.linkButton} onClick={handleAddLink} type="button">+ Добавить контакт</Button>
+            </div>
+            <div>
+                {errors && <p className={style.error}>{errors.firstName?.message}</p>}
+                {errors && <p className={style.error}>{errors.lastName?.message}</p>}
+                {errors && <p className={style.error}>{errors.patronymic?.message}</p>}
             </div>
             <Button className={style.addButton} type="submit">Сохранить</Button>
         </form>

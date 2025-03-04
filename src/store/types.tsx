@@ -1,5 +1,5 @@
+import { SORT_TYPE } from "store/usersSlice"
 import { User } from "components/User"
-import { SORT_TYPE } from "./usersSlice"
 
 export type State = {
     userList: User [],

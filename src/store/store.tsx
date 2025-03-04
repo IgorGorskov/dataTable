@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
-import userReducer from "./usersSlice"
-import modalReducer from "./modalSlice"
+import userReducer from "store/usersSlice"
+import modalReducer from "store/modalSlice"
 
 export type RootState = ReturnType<typeof store.getState>;
 

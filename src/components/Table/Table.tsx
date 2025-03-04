@@ -1,10 +1,10 @@
-import { TableUserRow } from "../TableUserRow/TableUserRow"
-import { RootState } from "store/store"
 import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "store/store"
 import { SORT_TYPE, sortUsers } from "store/usersSlice"
+import { ORDERS } from "store/types"
+import { TableUserRow } from "components/TableUserRow/TableUserRow"
 import SortArrow from "assets/sortArrow.svg"
 import classNames from "classnames"
-import { ORDERS } from "store/types"
 import * as style from "./style.module.scss"
 
 export const Table = () => {

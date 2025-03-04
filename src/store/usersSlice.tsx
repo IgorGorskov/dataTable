@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ORDERS, State } from "store/types";
 import { User, USERS_LIST } from "components/User";
-import { ORDERS, State } from "./types";
 import { sortByIdAsc, sortByIdDesc } from "components/sortFunc/sortById";
 import { sortByNameAsc, sortByNameDesc } from "components/sortFunc/sortByName";
 

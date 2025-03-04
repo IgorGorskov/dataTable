@@ -9,7 +9,7 @@ interface InputLinkProps {
 }
 
 export const LinkInput = ({id, onChange, link}: InputLinkProps) => {
-    const [type, setType] = useState(link ? link.type : '')
+    const [type, setType] = useState(link ? link.type : 'tel')
     const [text, setText] = useState(link ? link.text : '')
 
     const handleLinkChange = (event: ChangeEvent<HTMLSelectElement>) => {

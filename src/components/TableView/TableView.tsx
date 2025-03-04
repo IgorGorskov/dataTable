@@ -1,13 +1,12 @@
-import { Modal } from '../Modal/Modal'
-import { Table } from '../Table/Table'
-import { ModalAddUser } from '../Modal/ModalAddUser/ModalAddUser'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store/store'
 import { MODALS_TYPE, openAddModal } from 'store/modalSlice'
+import { Modal } from 'components/Modal/Modal'
+import { Table } from 'components/Table/Table'
+import { ModalAddUser } from 'components/Modal/ModalAddUser/ModalAddUser'
 import { ModalEditUser } from 'components/Modal/ModalEditUser/ModalEditUser'
 import { ModalDeletUser } from 'components/Modal/ModalDeletUser/ModalDeletUser'
 import { Button } from 'components/ui/Button/Button'
-
 import * as style from './style.module.scss' 
 
 export const TableView = () => {

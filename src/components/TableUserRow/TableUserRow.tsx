@@ -1,9 +1,10 @@
-import { User } from "../User"
-import * as style from './style.module.scss'
-import { ContactLink } from "../ui/ContactLink/ContactLink"
-import { useDispatch, useSelector } from "react-redux"
-import { openEditModal, openDeleteModal } from "store/modalSlice"
+import { useDispatch } from "react-redux"
+import { User } from "components/User"
 import { Button } from "components/ui/Button/Button"
+import { ContactLink } from "components/ui/ContactLink/ContactLink"
+import { openEditModal, openDeleteModal } from "store/modalSlice"
+
+import * as style from './style.module.scss'
 
 interface TableUserRowProps {
     user: User

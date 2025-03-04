@@ -1,8 +1,9 @@
-import * as style from './style.module.scss'
-import CrossIcon from '../../assets/cross.svg'
 import { ReactNode } from 'react'
 import { useDispatch } from 'react-redux'
 import { closeModal } from 'store/modalSlice'
+import CrossIcon from 'assets/cross.svg'
+
+import * as style from './style.module.scss'
 
 interface ModalProps {
     children?: ReactNode

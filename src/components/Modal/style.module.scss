@@ -52,6 +52,7 @@
             margin: auto;
             border: none;
             color: $primary-color;
+            font-size: 20px ;
             background: none;
         }
     }
@@ -75,6 +76,9 @@
         margin: auto;
         text-align: center;
     }
-    
+ 
+    .error{
+        color: $error;
+    }
 }
 
