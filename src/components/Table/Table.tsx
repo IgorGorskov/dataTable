@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "store/store"
-import { SORT_TYPE, sortUsers } from "store/usersSlice"
+import { SORT_TYPE, sortUsers } from "store/usersSlice/usersSlice"
 import { ORDERS } from "store/types"
 import { TableUserRow } from "components/TableUserRow/TableUserRow"
 import SortArrow from "assets/sortArrow.svg"

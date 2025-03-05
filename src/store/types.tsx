@@ -1,4 +1,4 @@
-import { SORT_TYPE } from "store/usersSlice"
+import { SORT_TYPE } from "store/usersSlice/usersSlice"
 import { User } from "components/User"
 
 export type State = {

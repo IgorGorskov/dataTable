@@ -7,13 +7,13 @@ export enum MODALS_TYPE {
     ADD = "add"
 }
 
-type State = {
+export type modalState = {
     isOpen: boolean,
     modalType?: MODALS_TYPE,
     user?: User
 }
 
-const initialState: State = {isOpen: false}
+const initialState: modalState = {isOpen: false}
 
 const modalSlice = createSlice({
     name: 'modal',

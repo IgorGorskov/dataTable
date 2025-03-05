@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store/store'
-import { MODALS_TYPE, openAddModal } from 'store/modalSlice'
+import { MODALS_TYPE, openAddModal } from 'store/modalSlice/modalSlice'
 import { Modal } from 'components/Modal/Modal'
 import { Table } from 'components/Table/Table'
 import { ModalAddUser } from 'components/Modal/ModalAddUser/ModalAddUser'

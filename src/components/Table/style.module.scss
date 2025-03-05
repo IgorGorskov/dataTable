@@ -3,7 +3,13 @@
 .container{
     max-height: 500px;
     margin-bottom: 3rem;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    margin-right: 17px;
+}
+
+.container:hover{
+    margin-right: 0;
+    overflow-y: auto;
 }
 
 .table{
@@ -23,6 +29,14 @@
 
 .tableBody{
     font-size: 16px;
+}
+
+.idHead,
+.nameHead,
+.creationTimeHead,
+.changeTimeHead{
+    user-select: none;
+    cursor: pointer;
 }
 
 .idHead,

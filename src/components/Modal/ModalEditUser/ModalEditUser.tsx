@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { closeModal } from 'store/modalSlice'
-import { changeUser } from 'store/usersSlice'
+import { closeModal } from 'store/modalSlice/modalSlice'
+import { changeUser } from 'store/usersSlice/usersSlice'
 
 import { LinkInput } from 'components/ui/LinkInput/LinkInput'
 import { Link, User } from 'components/User'

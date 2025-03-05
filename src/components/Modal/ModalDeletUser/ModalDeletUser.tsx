@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { User } from "components/User"
 import { Button } from "components/ui/Button/Button"
 
-import { deleteUser } from 'store/usersSlice'
-import { closeModal } from "store/modalSlice"
+import { deleteUser } from 'store/usersSlice/usersSlice'
+import { closeModal } from "store/modalSlice/modalSlice"
 
 import * as style from '../style.module.scss'
 

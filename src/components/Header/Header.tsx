@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useState } from "react"
 import Logo from "assets/data_icon.svg"
 import { useDispatch } from "react-redux"
-import { searchUser } from "store/usersSlice"
+import { searchUser } from "store/usersSlice/usersSlice"
 
 import * as style from './style.module.scss'
 
